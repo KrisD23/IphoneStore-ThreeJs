@@ -1,5 +1,6 @@
 import {
   Html,
+  Loader,
   OrbitControls,
   PerspectiveCamera,
   View,
@@ -14,7 +15,7 @@ const ModelView = ({
   groupRef,
   gsapType,
   controlRef,
-  setRotationSize,
+  setRotationState,
   size,
   item,
 }) => {
@@ -45,13 +46,7 @@ const ModelView = ({
         name={`${index === 1}? 'small' : 'large`}
         position={[0, 0, 0]}
       >
-        <Suspense
-          fallback={
-            <Html>
-              <div>Loading</div>
-            </Html>
-          }
-        >
+        <Suspense fallback={""}>
           <IPhone
             scale={index === 1 ? [15, 15, 15] : [17, 17, 17]}
             item={item}
